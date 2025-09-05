@@ -5,14 +5,14 @@ from typing import TYPE_CHECKING
 from sqlalchemy import Integer, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from channely.database.base import BaseEntity
+from channely.database.base import BaseMutableEntity
 from channely.database.user_event_type import UserEventType
 
 if TYPE_CHECKING:
     from channely.database.user_webhook_header import UserWebhookHeaderEntity
     
     
-class UserWebhookEntity(BaseEntity):
+class UserWebhookEntity(BaseMutableEntity):
     __tablename__ = "user_webhooks"
     url: Mapped[str] = mapped_column(String(2048), nullable=False)
     num_retries: Mapped[int] = mapped_column(Integer, default=3)

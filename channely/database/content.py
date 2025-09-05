@@ -7,7 +7,7 @@ from sqlalchemy import ForeignKey, Text
 from sqlalchemy.dialects.postgresql import UUID as PostgresUUID
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from channely.database.base import BaseEntity
+from channely.database.base import BaseMutableEntity
 from channely.database.content_status import ContentStatus
 
 if TYPE_CHECKING:
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     from channely.database.user import UserEntity
 
 
-class ContentEntity(BaseEntity):
+class ContentEntity(BaseMutableEntity):
     __tablename__ = "content"
 
     channel_id: Mapped[UUID] = mapped_column(

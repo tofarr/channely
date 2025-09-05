@@ -7,7 +7,7 @@ from sqlalchemy import ForeignKey, Integer, String
 from sqlalchemy.dialects.postgresql import UUID as PostgresUUID
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from channely.database.base import BaseEntity
+from channely.database.base import BaseMutableEntity
 from channely.database.content_event_type import ContentEventType
 
 if TYPE_CHECKING:
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     from channely.database.channel import ChannelEntity
     
     
-class ContentWebhookEntity(BaseEntity):
+class ContentWebhookEntity(BaseMutableEntity):
     __tablename__ = "content_webhooks"
 
     channel_id: Mapped[UUID | None] = mapped_column(

@@ -6,7 +6,7 @@ from uuid import UUID
 from sqlalchemy import String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from channely.database.base import BaseEntity
+from channely.database.base import BaseMutableEntity
 from channely.database.user_status import UserStatus
 
 if TYPE_CHECKING:
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     )
 
 
-class UserEntity(BaseEntity):
+class UserEntity(BaseMutableEntity):
     __tablename__ = "users"
 
     username: Mapped[str] = mapped_column(String(255), unique=True, nullable=False)

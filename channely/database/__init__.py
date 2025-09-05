@@ -6,7 +6,7 @@ dataclasses defined in the channely.model package.
 """
 
 from channely.database.attachment import AttachmentEntity
-from channely.database.base import Base, BaseEntity, BaseEntityWithoutTimestamps
+from channely.database.base import Base, BaseMutableEntity, BaseImmutableEntity
 from channely.database.channel import ChannelEntity
 from channely.database.content import ContentEntity
 from channely.database.channel_webhook import (
@@ -30,8 +30,8 @@ from channely.database.user import UserEntity
 __all__ = [
     # Base classes
     "Base",
-    "BaseEntity",
-    "BaseEntityWithoutTimestamps",
+    "BaseMutableEntity",
+    "BaseImmutableEntity",
     # Enums
     "ChannelPermissionType",
     "ChannelStatus",

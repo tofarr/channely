@@ -7,7 +7,7 @@ from sqlalchemy import ForeignKey, UniqueConstraint
 from sqlalchemy.dialects.postgresql import UUID as PostgresUUID
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from channely.database.base import BaseEntity, BaseEntityWithoutTimestamps
+from channely.database.base import BaseImmutableEntity
 from channely.database.channel_permission_type import ChannelPermissionType
 from channely.database.content_permission_type import ContentPermissionType
 from channely.database.system_permission_type import SystemPermissionType
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     from channely.database.user import UserEntity
 
 
-class ChannelPermissionEntity(BaseEntityWithoutTimestamps):
+class ChannelPermissionEntity(BaseImmutableEntity):
     __tablename__ = "channel_permissions"
     __table_args__ = (
         UniqueConstraint(
@@ -43,7 +43,7 @@ class ChannelPermissionEntity(BaseEntityWithoutTimestamps):
     )
 
 
-class ContentPermissionEntity(BaseEntityWithoutTimestamps):
+class ContentPermissionEntity(BaseImmutableEntity):
     __tablename__ = "content_permissions"
     __table_args__ = (
         UniqueConstraint(
@@ -68,7 +68,7 @@ class ContentPermissionEntity(BaseEntityWithoutTimestamps):
     )
 
 
-class SystemPermissionEntity(BaseEntityWithoutTimestamps):
+class SystemPermissionEntity(BaseImmutableEntity):
     __tablename__ = "system_permissions"
     __table_args__ = (
         UniqueConstraint("type", "user_id", name="unique_system_permission"),

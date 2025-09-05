@@ -7,7 +7,7 @@ from sqlalchemy import BigInteger, ForeignKey, String
 from sqlalchemy.dialects.postgresql import UUID as PostgresUUID
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from channely.database.base import BaseEntityWithoutTimestamps, BaseImmutableEntity
+from channely.database.base import BaseImmutableEntity, BaseImmutableEntity
 
 if TYPE_CHECKING:
     from channely.database.content import ContentEntity

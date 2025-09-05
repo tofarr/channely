@@ -12,7 +12,7 @@ class Base(DeclarativeBase):
     pass
 
 
-class BaseEntity(Base):
+class BaseMutableEntity(Base):
     """Base entity with common fields"""
 
     __abstract__ = True
