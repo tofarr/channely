@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from uuid import UUID
 
 from sqlalchemy import ForeignKey, Integer, String
@@ -17,7 +19,7 @@ class ContentWebhookEntity(BaseEntityWithoutTimestamps):
     event_type: Mapped[ContentEventType | None] = mapped_column()
 
     # Relationships
-    headers: Mapped[list["ContentWebhookHeaderEntity"]] = relationship(
+    headers: Mapped[list[ContentWebhookHeaderEntity]] = relationship(
         "ContentWebhookHeaderEntity", back_populates="webhook"
     )
 
@@ -32,6 +34,6 @@ class ContentWebhookHeaderEntity(BaseEntity):
     value: Mapped[str] = mapped_column(String(1024), nullable=False)
 
     # Relationships
-    webhook: Mapped["ContentWebhookEntity"] = relationship(
+    webhook: Mapped[ContentWebhookEntity] = relationship(
         "ContentWebhookEntity", back_populates="headers"
     )

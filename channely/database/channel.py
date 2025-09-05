@@ -1,3 +1,6 @@
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
 from uuid import UUID
 
 from sqlalchemy import ForeignKey, String
@@ -6,6 +9,11 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from channely.database.base import BaseEntity
 from channely.database.channel_status import ChannelStatus
+
+if TYPE_CHECKING:
+    from channely.database.content import ContentEntity
+    from channely.database.permissions import ChannelPermissionEntity
+    from channely.database.user import UserEntity
 
 
 class ChannelEntity(BaseEntity):
@@ -21,17 +29,17 @@ class ChannelEntity(BaseEntity):
     )
 
     # Relationships
-    creator: Mapped["UserEntity"] = relationship(
+    creator: Mapped[UserEntity] = relationship(
         "UserEntity", foreign_keys=[creator_id], back_populates="created_channels"
     )
-    parent_content: Mapped["ContentEntity"] = relationship(
+    parent_content: Mapped[ContentEntity] = relationship(
         "ContentEntity", foreign_keys=[parent_content_id], back_populates="subchannels"
     )
-    content: Mapped[list["ContentEntity"]] = relationship(
+    content: Mapped[list[ContentEntity]] = relationship(
         "ContentEntity",
         foreign_keys="ContentEntity.channel_id",
         back_populates="channel",
     )
-    permissions: Mapped[list["ChannelPermissionEntity"]] = relationship(
+    permissions: Mapped[list[ChannelPermissionEntity]] = relationship(
         "ChannelPermissionEntity", back_populates="channel"
     )

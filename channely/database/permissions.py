@@ -1,3 +1,6 @@
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
 from uuid import UUID
 
 from sqlalchemy import ForeignKey, UniqueConstraint
@@ -8,6 +11,11 @@ from channely.database.base import BaseEntity, BaseEntityWithoutTimestamps
 from channely.database.channel_permission_type import ChannelPermissionType
 from channely.database.content_permission_type import ContentPermissionType
 from channely.database.system_permission_type import SystemPermissionType
+
+if TYPE_CHECKING:
+    from channely.database.channel import ChannelEntity
+    from channely.database.content import ContentEntity
+    from channely.database.user import UserEntity
 
 
 class ChannelPermissionEntity(BaseEntityWithoutTimestamps):
@@ -27,10 +35,10 @@ class ChannelPermissionEntity(BaseEntityWithoutTimestamps):
     )
 
     # Relationships
-    channel: Mapped["ChannelEntity"] = relationship(
+    channel: Mapped[ChannelEntity] = relationship(
         "ChannelEntity", back_populates="permissions"
     )
-    creator: Mapped["UserEntity"] = relationship(
+    creator: Mapped[UserEntity] = relationship(
         "UserEntity", foreign_keys=[creator_id], back_populates="channel_permissions"
     )
 
@@ -52,10 +60,10 @@ class ContentPermissionEntity(BaseEntityWithoutTimestamps):
     )
 
     # Relationships
-    content: Mapped["ContentEntity"] = relationship(
+    content: Mapped[ContentEntity] = relationship(
         "ContentEntity", back_populates="permissions"
     )
-    user: Mapped["UserEntity"] = relationship(
+    user: Mapped[UserEntity] = relationship(
         "UserEntity", foreign_keys=[user_id], back_populates="content_permissions"
     )
 
@@ -72,6 +80,6 @@ class SystemPermissionEntity(BaseEntityWithoutTimestamps):
     )
 
     # Relationships
-    user: Mapped["UserEntity"] = relationship(
+    user: Mapped[UserEntity] = relationship(
         "UserEntity", back_populates="system_permissions"
     )
