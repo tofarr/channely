@@ -9,9 +9,9 @@ from channely.database.attachment import AttachmentEntity
 from channely.database.base import Base, BaseEntity, BaseEntityWithoutTimestamps
 from channely.database.channel import ChannelEntity
 from channely.database.content import ContentEntity
-from channely.database.content_webhook import (
-    ContentWebhookEntity,
-    ContentWebhookHeaderEntity,
+from channely.database.channel_webhook import (
+    ChannelWebhookEntity,
+    ChannelWebhookHeaderEntity,
 )
 from channely.database.channel_permission_type import ChannelPermissionType
 from channely.database.channel_status import ChannelStatus
@@ -44,8 +44,8 @@ __all__ = [
     "AttachmentEntity",
     "ChannelEntity",
     "ContentEntity",
-    "ContentWebhookEntity",
-    "ContentWebhookHeaderEntity",
+    "ChannelWebhookEntity",
+    "ChannelWebhookHeaderEntity",
     "UserEntity",
     # Permission entities
     "ChannelPermissionEntity",

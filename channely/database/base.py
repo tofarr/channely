@@ -28,11 +28,14 @@ class BaseEntity(Base):
     )
 
 
-class BaseEntityWithoutTimestamps(Base):
+class BaseImmutableEntity(Base):
     """Base entity without timestamp fields"""
 
     __abstract__ = True
 
     id: Mapped[UUID] = mapped_column(
         PostgresUUID(as_uuid=True), primary_key=True, default=uuid4
+    )
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), server_default=func.now()
     )

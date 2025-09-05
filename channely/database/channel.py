@@ -9,6 +9,7 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from channely.database.base import BaseEntity
 from channely.database.channel_status import ChannelStatus
+from channely.database.channel_webhook import ChannelWebhookEntity
 
 if TYPE_CHECKING:
     from channely.database.content import ContentEntity
@@ -42,4 +43,7 @@ class ChannelEntity(BaseEntity):
     )
     permissions: Mapped[list[ChannelPermissionEntity]] = relationship(
         "ChannelPermissionEntity", back_populates="channel"
+    )
+    webhooks: Mapped[list[ChannelWebhookEntity]] = relationship(
+        "ChannelWebhook", back_populates="channel"
     )

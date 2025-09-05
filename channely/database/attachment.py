@@ -7,13 +7,13 @@ from sqlalchemy import BigInteger, ForeignKey, String
 from sqlalchemy.dialects.postgresql import UUID as PostgresUUID
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from channely.database.base import BaseEntityWithoutTimestamps
+from channely.database.base import BaseEntityWithoutTimestamps, BaseImmutableEntity
 
 if TYPE_CHECKING:
     from channely.database.content import ContentEntity
 
 
-class AttachmentEntity(BaseEntityWithoutTimestamps):
+class AttachmentEntity(BaseImmutableEntity):
     __tablename__ = "attachments"
 
     content_id: Mapped[UUID] = mapped_column(

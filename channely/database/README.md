@@ -16,8 +16,8 @@ The database entities are organized as follows:
 - `ChannelEntity`: Communication channels
 - `ContentEntity`: Content/messages within channels
 - `AttachmentEntity`: File attachments to content
-- `ContentWebhookEntity`: Webhook configurations for content events
-- `ContentWebhookHeaderEntity`: HTTP headers for webhooks
+- `ChannelWebhookEntity`: Webhook configurations for content events
+- `ChannelWebhookHeaderEntity`: HTTP headers for webhooks
 
 ### Permission Entities
 - `ChannelPermissionEntity`: Channel-level permissions
