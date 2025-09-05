@@ -2,7 +2,7 @@ from dataclasses import dataclass, field
 from datetime import datetime
 from uuid import UUID
 
-from channely.model.system_permission_type import SystemPermissionType
+from channely.enums.system_permission_type import SystemPermissionType
 
 
 @dataclass

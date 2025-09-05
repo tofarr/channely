@@ -1,4 +1,9 @@
-# Re-export all enums from the enums package for database use
+"""
+Enum types for the Channely application.
+
+This package contains all enum definitions used throughout the application.
+"""
+
 from channely.enums.channel_permission_type import ChannelPermissionType
 from channely.enums.channel_status import ChannelStatus
 from channely.enums.content_event_type import ContentEventType

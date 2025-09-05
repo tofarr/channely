@@ -2,7 +2,7 @@ from dataclasses import dataclass, field
 from datetime import datetime
 from uuid import UUID, uuid4
 
-from channely.model.user_status import UserStatus
+from channely.enums.user_status import UserStatus
 
 
 @dataclass

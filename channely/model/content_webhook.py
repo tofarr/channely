@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
 from uuid import UUID, uuid4
 
-from channely.model.content_event_type import ContentEventType
+from channely.enums.content_event_type import ContentEventType
 
 
 @dataclass
