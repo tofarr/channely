@@ -12,6 +12,7 @@ from channely.database.channel_status import ChannelStatus
 
 if TYPE_CHECKING:
     from channely.database.content import ContentEntity
+    from channely.database.channel_info import ChannelInfoEntity
     from channely.database.permissions import ChannelPermissionEntity
     from channely.database.content_webhook import ContentWebhookEntity
     from channely.database.user import UserEntity
@@ -35,6 +36,11 @@ class ChannelEntity(BaseMutableEntity):
     )
     parent_content: Mapped[ContentEntity] = relationship(
         "ContentEntity", foreign_keys=[parent_content_id], back_populates="subchannels"
+    )
+    info: Mapped[list[ChannelInfoEntity]] = relationship(
+        "ChannelInfoEntity",
+        foreign_keys="ChannelInfoEntity.channel_id",
+        back_populates="channel",
     )
     content: Mapped[list[ContentEntity]] = relationship(
         "ContentEntity",
