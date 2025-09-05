@@ -1,3 +1,6 @@
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
 from uuid import UUID
 
 from sqlalchemy import BigInteger, ForeignKey, String
@@ -5,6 +8,9 @@ from sqlalchemy.dialects.postgresql import UUID as PostgresUUID
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from channely.database.base import BaseEntityWithoutTimestamps
+
+if TYPE_CHECKING:
+    from channely.database.content import ContentEntity
 
 
 class AttachmentEntity(BaseEntityWithoutTimestamps):
@@ -18,6 +24,6 @@ class AttachmentEntity(BaseEntityWithoutTimestamps):
     size_in_bytes: Mapped[int] = mapped_column(BigInteger, nullable=False)
 
     # Relationships
-    content: Mapped["ContentEntity"] = relationship(
+    content: Mapped[ContentEntity] = relationship(
         "ContentEntity", back_populates="attachments"
     )
