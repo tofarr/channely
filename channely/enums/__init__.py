@@ -14,7 +14,7 @@ from channely.enums.user_status import UserStatus
 
 __all__ = [
     "ChannelPermissionType",
-    "ChannelStatus", 
+    "ChannelStatus",
     "ContentEventType",
     "ContentPermissionType",
     "ContentStatus",

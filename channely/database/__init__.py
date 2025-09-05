@@ -1,7 +1,7 @@
 """
 SQLAlchemy database entities for the Channely application.
 
-This package contains SQLAlchemy entity definitions that correspond to the 
+This package contains SQLAlchemy entity definitions that correspond to the
 dataclasses defined in the channely.model package.
 """
 
@@ -9,7 +9,10 @@ from channely.database.attachment import AttachmentEntity
 from channely.database.base import Base, BaseEntity, BaseEntityWithoutTimestamps
 from channely.database.channel import ChannelEntity
 from channely.database.content import ContentEntity
-from channely.database.content_webhook import ContentWebhookEntity, ContentWebhookHeaderEntity
+from channely.database.content_webhook import (
+    ContentWebhookEntity,
+    ContentWebhookHeaderEntity,
+)
 from channely.database.enums import (
     ChannelPermissionType,
     ChannelStatus,
@@ -29,18 +32,16 @@ from channely.database.user import UserEntity
 __all__ = [
     # Base classes
     "Base",
-    "BaseEntity", 
+    "BaseEntity",
     "BaseEntityWithoutTimestamps",
-    
     # Enums
     "ChannelPermissionType",
     "ChannelStatus",
-    "ContentEventType", 
+    "ContentEventType",
     "ContentPermissionType",
     "ContentStatus",
     "SystemPermissionType",
     "UserStatus",
-    
     # Main entities
     "AttachmentEntity",
     "ChannelEntity",
@@ -48,9 +49,8 @@ __all__ = [
     "ContentWebhookEntity",
     "ContentWebhookHeaderEntity",
     "UserEntity",
-    
     # Permission entities
     "ChannelPermissionEntity",
-    "ContentPermissionEntity", 
+    "ContentPermissionEntity",
     "SystemPermissionEntity",
 ]

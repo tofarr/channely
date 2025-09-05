@@ -8,12 +8,18 @@ authors = [
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "black (>=25.1.0,<26.0.0)",
     "sqlalchemy (>=2.0.0,<3.0.0)"
 ]
 
+[tool.poetry.group.dev.dependencies]
+black = "~25.1"
+pytest = "~7.2"
+pytest-cov = "~4.0"
+pytest-xdist = "~3.2"
+pylint = "~3.0"
+
 [tool.poetry]
-packages = [{include = "channely", from = "src"}]
+packages = [{include = "channely"}]
 
 
 [build-system]
