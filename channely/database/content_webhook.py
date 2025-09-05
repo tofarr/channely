@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     from channely.database.channel import ChannelEntity
     
     
-class ChannelWebhookEntity(BaseEntity):
+class ContentWebhookEntity(BaseEntity):
     __tablename__ = "content_webhooks"
 
     channel_id: Mapped[UUID | None] = mapped_column(
