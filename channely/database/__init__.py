@@ -13,15 +13,13 @@ from channely.database.content_webhook import (
     ContentWebhookEntity,
     ContentWebhookHeaderEntity,
 )
-from channely.database.enums import (
-    ChannelPermissionType,
-    ChannelStatus,
-    ContentEventType,
-    ContentPermissionType,
-    ContentStatus,
-    SystemPermissionType,
-    UserStatus,
-)
+from channely.database.channel_permission_type import ChannelPermissionType
+from channely.database.channel_status import ChannelStatus
+from channely.database.content_event_type import ContentEventType
+from channely.database.content_permission_type import ContentPermissionType
+from channely.database.content_status import ContentStatus
+from channely.database.system_permission_type import SystemPermissionType
+from channely.database.user_status import UserStatus
 from channely.database.permissions import (
     ChannelPermissionEntity,
     ContentPermissionEntity,

@@ -4,7 +4,7 @@ from sqlalchemy import String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from channely.database.base import BaseEntity
-from channely.database.enums import UserStatus
+from channely.database.user_status import UserStatus
 
 
 class UserEntity(BaseEntity):

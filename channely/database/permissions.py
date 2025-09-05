@@ -5,11 +5,9 @@ from sqlalchemy.dialects.postgresql import UUID as PostgresUUID
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from channely.database.base import BaseEntity, BaseEntityWithoutTimestamps
-from channely.database.enums import (
-    ChannelPermissionType,
-    ContentPermissionType,
-    SystemPermissionType,
-)
+from channely.database.channel_permission_type import ChannelPermissionType
+from channely.database.content_permission_type import ContentPermissionType
+from channely.database.system_permission_type import SystemPermissionType
 
 
 class ChannelPermissionEntity(BaseEntityWithoutTimestamps):

@@ -2,7 +2,7 @@ from dataclasses import field
 from datetime import datetime
 from uuid import UUID, uuid4
 
-from channely.enums.content_permission_type import ContentPermissionType
+from channely.database.content_permission_type import ContentPermissionType
 
 
 class ContentPermission:
