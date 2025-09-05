@@ -1,0 +1,12 @@
+from enum import Enum
+
+
+class ChannelPermissionType(Enum):
+    """Permission types related to channels"""
+
+    READ_CHANNEL_META = "READ_CHANNEL_META"
+    UPDATE_CHANNEL_META = "UPDATE_CHANNEL_META"
+    DELETE_CHANNEL = "DELETE_CHANNEL"
+    CREATE_ARTICLE = "CREATE_ARTICLE"
+    UPDATE_ANY_ARTICLE = "UPDATE_ANY_ARTICLE"
+    DELETE_ANY_ARTICLE = "DELETE_ANY_ARTICLE"
